@@ -22,6 +22,12 @@ function App() {
 				description="Finest fish and veggies"
 				price={22.99}
 			></MealItem>
+			<MealItem
+				id="m2"
+				name="Sushi"
+				description="Finest fish and veggies"
+				price={22.99}
+			></MealItem>
 		</CartProvider>
 	);
 }
