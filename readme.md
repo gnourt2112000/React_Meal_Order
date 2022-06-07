@@ -110,5 +110,3 @@
     })
     ```
 - Sử dụng ref trong 1 số use cases như làm việc với animation, text selection, focus, media playback. Ref trỏ trực tiếp vào DOM thật trong khi React sử dụng DOM. 
-
-- Cảm ơn các bạn đã theo dõi đến đây
