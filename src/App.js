@@ -4,6 +4,7 @@ import Cart from "./components/Cart/Cart";
 import CartProvider from "./store/CartProvider";
 import MealItem from "./components/Meals/MealItem/MealItem";
 import MealsSummary from "./components/Meals/MealsSummary";
+import AvailableMeals from "./components/Meals/AvailableMeals";
 
 function App() {
 	const [cartIsShown, setCartIsShown] = useState(false);
@@ -19,13 +20,7 @@ function App() {
 			{cartIsShown && <Cart onCloseCart={handleCloseCart}></Cart>}
 			<Header onShowCart={handleShowCart}></Header>
 			<MealsSummary></MealsSummary>
-
-			<MealItem
-				id="m1"
-				name="Sushi"
-				description="Finest fish and veggies"
-				price={22.99}
-			></MealItem>
+			<AvailableMeals></AvailableMeals>
 		</CartProvider>
 	);
 }
