@@ -8,10 +8,12 @@
 
 .meal h3 {
   margin: 0 0 0.25rem 0;
+  min-width: 10rem;
 }
 
 .description {
   font-style: italic;
+  min-width: 10rem;
 }
 
 .price {
