@@ -7,8 +7,8 @@
 }
 
 .meal h3 {
-  margin: 0 0 0.25rem 0;
-  min-width: 10rem;
+  margin: 0 0.25rem 0;
+  min-width: 11rem;
 }
 
 .description {
@@ -21,4 +21,29 @@
   font-weight: bold;
   color: #ad5502;
   font-size: 1.25rem;
+}
+
+.nameAndDesc {
+  display: flex;
+}
+
+@media (max-width: 730px){
+  .meal h3 {
+    max-width: 5rem;
+  }
+
+  .description {
+    font-style: italic;
+    max-width: 5rem;
+  }
+  .price {
+    margin-top: 3rem;
+    font-weight: bold;
+    color: #ad5502;
+    font-size: 1.25rem;
+  }
+  .nameAndDesc {
+    display: block;
+    max-width: 6rem;
+  }
 }

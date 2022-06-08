@@ -13,8 +13,10 @@ const MealItem = ({meal}) => {
     
     return (
         <li className={classes.meal}>
-            <h3>{meal.name}</h3>
-            <div className={classes.description}>{meal.description}</div>
+            <div className={classes.nameAndDesc}>
+                <h3>{meal.name}</h3>
+                <div className={classes.description}>{meal.description}</div>
+            </div>
             <div className={classes.price}>{price}</div>
             <MealItemForm id={meal.id} onAddToCart={handleOnAddToCart}></MealItemForm>
         </li>
