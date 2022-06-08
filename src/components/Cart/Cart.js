@@ -1,34 +1,33 @@
 import classes from './Cart.module.css'
 import Modal from '../UI/Modal'
-import CartContext from '../../store/cart-context'
-import { useContext } from 'react'
 import CartItem from './CartItem'
+import { useStore, actions } from '../../store'
 
-const Cart = (props) => {
-    const cartCtx = useContext(CartContext)         // tạo ra store mà có thể sử dụng đc ở tất cả các file 
+const Cart = ({ onCloseCart }) => {
+    const [state, dispatch] = useStore();         // tạo ra store mà có thể sử dụng đc ở tất cả các file 
 
     // them so luong san pham 
     const handleOnAddToCart = (item) => {           
-        cartCtx.addItem({...item, amount : 1})
+        dispatch(actions.addItemCart({...item, amount: 1}))
     }
     // giam so luong sp
-    const handleOnRemoveToCart = (id) => {
-        cartCtx.removeItem(id)
+    const handleOnRemoveToCart = (item) => {
+        dispatch(actions.removeItemCart(item))
     }
     // tinh gia
-    const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`
-    const hasItems = cartCtx.items.length > 0
+    const totalAmount = `$${state.totalAmount.toFixed(2)}`
+
+    const hasItems = state.items.length > 0
+
     return (
-        <Modal onCloseModal={props.onCloseCart}>
+        <Modal onCloseModal={onCloseCart}>
             <ul className={classes['cart-items']}>
-                {cartCtx.items.map((item) => (
+                {state.items.map((item) => (
                     <CartItem
                         key={item.id}
-                        name={item.name}
-                        amount={item.amount}
-                        price={item.price}
-                        onAdd={handleOnAddToCart.bind(null,item)}
-                        onRemove={handleOnRemoveToCart.bind(null,item.id)}
+                        item={item}
+                        onAdd={handleOnAddToCart}
+                        onRemove={handleOnRemoveToCart}
                     >
                     </CartItem>
                 ))}
@@ -38,7 +37,7 @@ const Cart = (props) => {
                 <span>{totalAmount}</span>
             </div>
             <div className={classes.actions}>
-                <button className={classes['button--alt']} onClick={props.onCloseCart}>Close</button>
+                <button className={classes['button--alt']} onClick={onCloseCart}>Close</button>
                 {hasItems && <button className={classes.button}>Order</button>}
             </div>
         </Modal>

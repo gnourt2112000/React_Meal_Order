@@ -1,9 +1,8 @@
 import { useState } from "react";
 import Header from "./components/Layout/Header";
 import Cart from "./components/Cart/Cart";
-import CartProvider from "./store/CartProvider";
-import MealItem from "./components/Meals/MealItem/MealItem";
 import Meals from "./components/Meals/Meals";
+import { StoreProvider } from './store';
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -15,13 +14,13 @@ function App() {
   };
 
   return (
-    <CartProvider>
+    <StoreProvider>
       {cartIsShown && <Cart onCloseCart={handleCloseCart}></Cart>}
       <Header onShowCart={handleShowCart}></Header>
       <main>
         <Meals></Meals>
       </main>
-    </CartProvider>
+    </StoreProvider>
   );
 }
 
