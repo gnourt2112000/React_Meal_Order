@@ -12,14 +12,23 @@ const MealItem = ({meal}) => {
     }
     
     return (
-        <li className={classes.meal}>
-            <div className={classes.nameAndDesc}>
-                <h3>{meal.name}</h3>
-                <div className={classes.description}>{meal.description}</div>
-            </div>
-            <div className={classes.price}>{price}</div>
-            <MealItemForm id={meal.id} onAddToCart={handleOnAddToCart}></MealItemForm>
-        </li>
-    )
+		<li className={classes.meal}>
+			<div className={classes.nameAndDesc}>
+				<h3>{meal.name}</h3>
+				<div className={classes.description}>{meal.description}</div>
+			</div>
+			<div className={classes.image}>
+				<img
+					src={meal.img_url}
+					alt={meal.name}
+				></img>
+			</div>
+			<div className={classes.price}>{price}</div>
+			<MealItemForm
+				id={meal.id}
+				onAddToCart={handleOnAddToCart}
+			></MealItemForm>
+		</li>
+	);
 }
 export default MealItem

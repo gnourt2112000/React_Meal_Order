@@ -24,9 +24,12 @@
 }
 
 .nameAndDesc {
-  display: flex;
+  /* display: flex; */
 }
 
+/* .image {
+    width: 50%;
+} */
 @media (max-width: 730px){
   .meal h3 {
     max-width: 5rem;
